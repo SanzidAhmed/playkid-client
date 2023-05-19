@@ -1,11 +1,13 @@
 import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
+import { GoogleAuthProvider } from 'firebase/auth';
 
 const Login = () => {
-    const { loginUser } = useContext(AuthContext)
+    const { loginUser, signInGoogle } = useContext(AuthContext)
     const [success, setSuccess] = useState('')
     const [error, setError] = useState('');
+    const googleProvider = new GoogleAuthProvider();
 
 
 
@@ -26,6 +28,13 @@ const Login = () => {
             .catch(error => {
                 setError(error.message)
             })
+    }
+    const handleLoginGoogle = (provider) => {
+        setSuccess('');
+        signInGoogle(googleProvider)
+            .then(result => { setSuccess('login successfully with google') })
+            .catch(error => { setError(error.message) });
+
     }
     return (
         <div>
@@ -57,9 +66,15 @@ const Login = () => {
                                 <input type="submit" className="btn btn-primary  bg-yellow-500 border-yellow-500 hover:bg-yellow-700" value="Sign In" />
                             </div>
                         </form>
-                        <p>{error}</p>
-                        <p>{success}</p>
+                        <div className='text-center'>
+                            <p>{error}</p>
+                            <p>{success}</p>
+                        </div>
                         <p className='text-center'>New to Playkid? <Link to="/register" className='text-yellow-500 font-bold'>Register</Link></p>
+                        <p className='text-center mt-4 text-2xl'>Login with Google</p>
+                        <div onClick={handleLoginGoogle} className='text-center mx-auto btn bg-white hover:bg-white border-white my-6'>
+                            <img className='w-10 h-10' src="https://cdn-icons-png.flaticon.com/512/300/300221.png?w=826&t=st=1684506616~exp=1684507216~hmac=87a7f6ec450595f49ffe3464421f55fb8f6194fadeb98bc02e04dda301be934a" alt="" />
+                        </div>
                     </div>
                 </div>
             </div>
