@@ -6,13 +6,13 @@ const Navbar = () => {
     const { user, logoutUser } = useContext(AuthContext);
 
     const handleLogout = () => {
-        logoutUser() 
-        .then(result => {
+        logoutUser()
+            .then(result => {
 
-        })
-        .catch(error => {
-            console.log(error.message);
-        })
+            })
+            .catch(error => {
+                console.log(error.message);
+            })
     }
     return (
         <div className="navbar bg-base-100 container mx-auto">
@@ -26,12 +26,14 @@ const Navbar = () => {
                         <li tabIndex={0}>
                             <Link>All toys</Link>
                         </li>
-                        <li tabIndex={0}>
-                            <Link>My Toys</Link>
-                        </li>
-                        <li tabIndex={0}>
-                            <Link>Add a Toys</Link>
-                        </li>
+                        {user && <div>
+                            <li tabIndex={0}>
+                                <Link>My Toys</Link>
+                            </li>
+                            <li tabIndex={0}>
+                                <Link>Add a Toys</Link>
+                            </li>
+                        </div>}
                         <li><span>Blogs</span></li>
                         {!user && <li className='' ><Link to="/login">Login</Link></li>}
                     </ul>
@@ -44,12 +46,14 @@ const Navbar = () => {
                     <li tabIndex={0}>
                         <Link>All toys</Link>
                     </li>
-                    <li tabIndex={0}>
-                        <Link>My Toys</Link>
-                    </li>
-                    <li tabIndex={0}>
-                        <Link>Add a Toys</Link>
-                    </li>
+                    { user && <div className='flex'>
+                        <li tabIndex={0}>
+                            <Link>My Toys</Link>
+                        </li>
+                        <li tabIndex={0}>
+                            <Link>Add a Toys</Link>
+                        </li>
+                    </div>}
                     <li><a>Blogs</a></li>
 
 
@@ -75,7 +79,7 @@ const Navbar = () => {
                     </ul>
                 </div>}
                 {!user && <div className=''>
-                    <p className='btn bg-white text-black  hover:bg-slate-100'><Link to="/login">Login</Link></p>
+                    <p><Link  className='btn bg-white text-black  hover:bg-slate-100' to="/login">Login</Link></p>
                 </div>}
             </div>
         </div>
