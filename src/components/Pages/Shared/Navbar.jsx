@@ -3,7 +3,17 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
 
 const Navbar = () => {
-    const {user} = useContext(AuthContext);
+    const { user, logoutUser } = useContext(AuthContext);
+
+    const handleLogout = () => {
+        logoutUser() 
+        .then(result => {
+
+        })
+        .catch(error => {
+            console.log(error.message);
+        })
+    }
     return (
         <div className="navbar bg-base-100 container mx-auto">
             <div className="navbar-start ">
@@ -22,14 +32,14 @@ const Navbar = () => {
                         <li tabIndex={0}>
                             <Link>Add a Toys</Link>
                         </li>
-                        <li><a>Blogs</a></li>
+                        <li><span>Blogs</span></li>
+                        {!user && <li className='' ><Link to="/login">Login</Link></li>}
                     </ul>
                 </div>
-                <img src="https://i.ibb.co/nQQ2Zk1/p-2.png" className="btn btn-ghost  hover:bg-white w-64 h-32" alt="" />
-
+                <img src="https://i.ibb.co/nQQ2Zk1/p-2.png" className="btn btn-ghost ml-8  hover:bg-white w-64 h-32" alt="" />
             </div>
             <div className="navbar-center hidden lg:flex">
-                <ul className="menu menu-horizontal px-1">
+                <ul className="menu menu-horizontal px-1 flex">
                     <li><Link to="/">Home</Link></li>
                     <li tabIndex={0}>
                         <Link>All toys</Link>
@@ -41,17 +51,18 @@ const Navbar = () => {
                         <Link>Add a Toys</Link>
                     </li>
                     <li><a>Blogs</a></li>
-                    {!user &&<li><Link to="/login">Login</Link></li>}
-                    
+
+
                 </ul>
             </div>
             <div className="navbar-end">
-                <div className="dropdown dropdown-end">
-                    {user && <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                {user && <div className="dropdown dropdown-end">
+                    <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                         <div className="w-10 rounded-full">
-                            <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                            <img src={user.photoURL} />
                         </div>
-                    </label>}
+                    </label>
+
                     <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                         <li>
                             <a className="justify-between">
@@ -60,9 +71,12 @@ const Navbar = () => {
                             </a>
                         </li>
                         <li><a>Settings</a></li>
-                        <li><a>Logout</a></li>
+                        <li onClick={handleLogout}><a>Logout</a></li>
                     </ul>
-                </div>
+                </div>}
+                {!user && <div className=''>
+                    <p className='btn bg-white text-black  hover:bg-slate-100'><Link to="/login">Login</Link></p>
+                </div>}
             </div>
         </div>
     );
