@@ -22,7 +22,7 @@ const Login = () => {
                 const loggedUser = result.user;
                 setError('')
                 form.reset();
-                setSuccess('login successfully');
+                setSuccess('Sign In successfully');
                 console.log(result.user);
             })
             .catch(error => {
@@ -32,13 +32,13 @@ const Login = () => {
     const handleLoginGoogle = (provider) => {
         setSuccess('');
         signInGoogle(googleProvider)
-            .then(result => { setSuccess('login successfully with google') })
+            .then(result => { setSuccess('Sign In successfully with google') })
             .catch(error => { setError(error.message) });
 
     }
     return (
         <div>
-            <h1 className='text-center text-5xl mt-10'>Please login</h1>
+            <h1 className='text-center text-5xl mt-10'>Please Sign In</h1>
             <div className="hero min-h-screen bg-white">
                 <div className="hero-content flex-col lg:flex-row">
                     <div className="text-center lg:text-left">
@@ -71,7 +71,7 @@ const Login = () => {
                             <p>{success}</p>
                         </div>
                         <p className='text-center'>New to Playkid? <Link to="/register" className='text-yellow-500 font-bold'>Register</Link></p>
-                        <p className='text-center mt-4 text-2xl'>Login with Google</p>
+                        <p className='text-center mt-4 text-2xl'>Sign In with Google</p>
                         <div onClick={handleLoginGoogle} className='text-center mx-auto btn bg-white hover:bg-white border-white my-6'>
                             <img className='w-10 h-10' src="https://cdn-icons-png.flaticon.com/512/300/300221.png?w=826&t=st=1684506616~exp=1684507216~hmac=87a7f6ec450595f49ffe3464421f55fb8f6194fadeb98bc02e04dda301be934a" alt="" />
                         </div>
