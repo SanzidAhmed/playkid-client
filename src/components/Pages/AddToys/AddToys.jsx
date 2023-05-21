@@ -1,38 +1,84 @@
 import React from 'react';
+import { useForm } from "react-hook-form";
+
 
 const AddToys = () => {
+    const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    const onSubmit = data => console.log(data);
     return (
-        <div>
-            <div className="hero min-h-screen bg-base-200">
-                <div className="hero-content flex-col lg:flex-row-reverse">
-                    <div className="text-center lg:text-left">
-                        <h1 className="text-5xl font-bold">Login now!</h1>
-                        <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+        <div className="bg-white p-32">
+            <h1 className="text-center font-extrabold text-3xl mb-14">Add a toy</h1>
+            <form onSubmit={handleSubmit(onSubmit)} className=" ">
+                <div className="md:flex gap-5">
+                    <div className="form-control md:w-1/2">
+                        <label className="label">
+                            <span className="label-text text-lg font-medium ">Toy Name</span>
+                        </label>
+                        <label className="">
+                            <input type="text" {...register("toyName")} placeholder="Toy name" name="toyName" className="input input-bordered rounded-lg w-full" />
+                        </label>
                     </div>
-                    <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-                        <div className="card-body">
-                            <div className="form-control">
-                                <label className="label">
-                                    <span className="label-text">Email</span>
-                                </label>
-                                <input type="text" placeholder="email" className="input input-bordered" />
-                            </div>
-                            <div className="form-control">
-                                <label className="label">
-                                    <span className="label-text">Password</span>
-                                </label>
-                                <input type="text" placeholder="password" className="input input-bordered" />
-                                <label className="label">
-                                    <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
-                                </label>
-                            </div>
-                            <div className="form-control mt-6">
-                                <button className="btn btn-primary">Login</button>
-                            </div>
-                        </div>
+                    <div className="form-control md:w-1/2">
+                        <label className="label">
+                            <span className="label-text text-lg font-medium">Quantity</span>
+                        </label>
+                        <label className="">
+                            <input type="number" {...register("quantity")} placeholder="Quantity" name="quantity" className="input input-bordered rounded-lg w-full" />
+                        </label>
                     </div>
                 </div>
-            </div>
+                <div className="md:flex gap-5">
+                    <div className="form-control md:w-1/2">
+                        <label className="label">
+                            <span className="label-text text-lg font-medium ">Supplier Name</span>
+                        </label>
+                        <label className="">
+                            <input type="text" {...register("supplierName")} placeholder="Supplier name" name="supplierName" className="input input-bordered rounded-lg w-full" />
+                        </label>
+                    </div>
+                    <div className="form-control md:w-1/2">
+                        <label className="label">
+                            <span className="label-text text-lg font-medium">Feature</span>
+                        </label>
+                        <label className="">
+                            <input type="text" {...register("productFeature")} placeholder="Enter product feature" name="feature" className="input input-bordered rounded-lg w-full" />
+                        </label>
+                    </div>
+                </div>
+                <div className="md:flex gap-5">
+                    <div className="form-control md:w-1/2">
+                        <label className="label">
+                            <span className="label-text text-lg font-medium ">Category Name</span>
+                        </label>
+                        <label className="">
+                            <select className=' input input-bordered rounded-lg w-full' {...register("category")}>
+                                <option value="movement">Movement toys</option>
+                                <option value="Small world toys">Small world toys</option>
+                                <option value="Creative toys">Creative toys</option>
+                            </select>
+                        </label>
+                    </div>
+                    <div className="form-control md:w-1/2">
+                        <label className="label">
+                            <span className="label-text text-lg font-medium">Details</span>
+                        </label>
+                        <label className="">
+                            <input type="text" {...register("toyDetails")} placeholder="Toy details" name="details" className="input input-bordered rounded-lg w-full" />
+                        </label>
+                    </div>
+                </div>
+                <div className="md:flex gap-5 mb-10">
+                    <div className="form-control md:w-full">
+                        <label className="label">
+                            <span className="label-text text-lg font-medium">Photo URL</span>
+                        </label>
+                        <label className="">
+                            <input type="text" {...register("productPhoto")} placeholder="Entire photo url" name="photo" className="input input-bordered rounded-lg w-full" />
+                        </label>
+                    </div>
+                </div>
+                <input type="submit" value="add toy" className="btn btn-block bg-yellow-500 hover:bg-yellow-700" />
+            </form>
         </div>
     );
 };
