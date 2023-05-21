@@ -71,7 +71,7 @@ const Register = () => {
                                 <input type="submit" className="btn btn-primary  bg-yellow-500 border-yellow-500 hover:bg-yellow-700" value="Sign Up" />
                             </div>
                         </form>
-                        <p  className='text-center'>Already have an account? <Link to="/login" className='text-yellow-500 font-bold'>Login</Link></p>
+                        <p  className='text-center'>Already have an account? <Link to="/signin" className='text-yellow-500 font-bold'>Login</Link></p>
                     </div>
                 </div>
             </div>

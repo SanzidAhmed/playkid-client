@@ -24,14 +24,14 @@ const Navbar = () => {
                     <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-32">
                         <li><Link to="/">Home</Link></li>
                         <li tabIndex={0}>
-                            <Link>All toys</Link>
+                            <Link to="/alltoys">All toys</Link>
                         </li>
                         {user && <div>
                             <li tabIndex={0}>
                                 <Link>My Toys</Link>
                             </li>
                             <li tabIndex={0}>
-                                <Link>Add a Toys</Link>
+                                <Link to="/addtoys">Add a Toys</Link>
                             </li>
                         </div>}
                         <li><span>Blogs</span></li>
@@ -44,14 +44,14 @@ const Navbar = () => {
                 <ul className="menu menu-horizontal px-1 flex">
                     <li><Link to="/">Home</Link></li>
                     <li tabIndex={0}>
-                        <Link>All toys</Link>
+                        <Link to="/alltoys">All toys</Link>
                     </li>
                     { user && <div className='flex'>
                         <li tabIndex={0}>
-                            <Link>My Toys</Link>
+                            <Link to="/mytoys">My Toys</Link>
                         </li>
                         <li tabIndex={0}>
-                            <Link>Add a Toys</Link>
+                            <Link to="/addtoys">Add a Toys</Link>
                         </li>
                     </div>}
                     <li><a>Blogs</a></li>
@@ -79,7 +79,7 @@ const Navbar = () => {
                     </ul>
                 </div>}
                 {!user && <div className=''>
-                    <p><Link  className='btn bg-white text-black  hover:bg-slate-100 border-yellow-500' to="/login">Sign in</Link></p>
+                    <p><Link  className='btn bg-white text-black  hover:bg-slate-100 border-yellow-500' to="/signin">Sign in</Link></p>
                 </div>}
             </div>
         </div>
