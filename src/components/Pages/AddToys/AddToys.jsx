@@ -1,10 +1,26 @@
-import React from 'react';
+
+import React, { useContext } from 'react';
 import { useForm } from "react-hook-form";
+import { AuthContext } from '../../Provider/AuthProvider';
 
 
 const AddToys = () => {
+    const { user } = useContext(AuthContext)
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
-    const onSubmit = data => console.log(data);
+    const onSubmit = data => {
+        fetch('http://localhost:5400/posttoys', {
+            method: 'POST',
+            headers: {
+                "content-type": "application/json"
+            },
+            body: JSON.stringify(data),
+        })
+            .then(res => res.json())
+            .then(result => {
+                console.log(result)
+            })
+        console.log(data);
+    };
     return (
         <div className="bg-white p-32">
             <h1 className="text-center font-extrabold text-3xl mb-14">Add a toy</h1>
@@ -30,10 +46,10 @@ const AddToys = () => {
                 <div className="md:flex gap-5">
                     <div className="form-control md:w-1/2">
                         <label className="label">
-                            <span className="label-text text-lg font-medium ">Supplier Name</span>
+                            <span className="label-text text-lg font-medium ">Price</span>
                         </label>
                         <label className="">
-                            <input type="text" {...register("supplierName")} placeholder="Supplier name" name="supplierName" className="input input-bordered rounded-lg w-full" />
+                            <input type="number" {...register("price")} placeholder="price" name="price" className="input input-bordered rounded-lg w-full" />
                         </label>
                     </div>
                     <div className="form-control md:w-1/2">
@@ -41,7 +57,7 @@ const AddToys = () => {
                             <span className="label-text text-lg font-medium">Feature</span>
                         </label>
                         <label className="">
-                            <input type="text" {...register("productFeature")} placeholder="Enter product feature" name="feature" className="input input-bordered rounded-lg w-full" />
+                            <input type="text" {...register("productFeature")} placeholder="Enter product feature" name="productFeature" className="input input-bordered rounded-lg w-full" />
                         </label>
                     </div>
                 </div>
@@ -52,7 +68,7 @@ const AddToys = () => {
                         </label>
                         <label className="">
                             <select className=' input input-bordered rounded-lg w-full' {...register("category")}>
-                                <option value="movement">Movement toys</option>
+                                <option value="movement toys">Movement toys</option>
                                 <option value="Small world toys">Small world toys</option>
                                 <option value="Creative toys">Creative toys</option>
                             </select>
@@ -63,17 +79,35 @@ const AddToys = () => {
                             <span className="label-text text-lg font-medium">Details</span>
                         </label>
                         <label className="">
-                            <input type="text" {...register("toyDetails")} placeholder="Toy details" name="details" className="input input-bordered rounded-lg w-full" />
+                            <input type="text" {...register("toyDetails")} placeholder="Toy details" name="toyDetails" className="input input-bordered rounded-lg w-full" />
+                        </label>
+                    </div>
+                </div>
+                <div className="md:flex gap-5">
+                    <div className="form-control md:w-full">
+                        <label className="label">
+                            <span className="label-text text-lg font-medium">Email</span>
+                        </label>
+                        <label className="">
+                            <input className=" input input-bordered rounded-lg w-full" value={user?.email}{...register("postedBy")}placeholder="your email"type="email" />
+                        </label>
+                    </div>
+                    <div className="form-control md:w-full">
+                        <label className="label">
+                            <span className="label-text text-lg font-medium">Photo URL</span>
+                        </label>
+                        <label className="">
+                            <input type="text" {...register("productPhoto")} placeholder="Entire photo url" name="productPhoto" className="input input-bordered rounded-lg w-full" />
                         </label>
                     </div>
                 </div>
                 <div className="md:flex gap-5 mb-10">
                     <div className="form-control md:w-full">
                         <label className="label">
-                            <span className="label-text text-lg font-medium">Photo URL</span>
+                            <span className="label-text text-lg font-medium">Name</span>
                         </label>
                         <label className="">
-                            <input type="text" {...register("productPhoto")} placeholder="Entire photo url" name="photo" className="input input-bordered rounded-lg w-full" />
+                            <input className=" input input-bordered rounded-lg w-full" defaultValue={user?.displayName}{...register("postedByName")}placeholder="your name"type="text" />
                         </label>
                     </div>
                 </div>
