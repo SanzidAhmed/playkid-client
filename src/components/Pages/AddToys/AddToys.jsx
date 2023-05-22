@@ -2,11 +2,13 @@
 import React, { useContext } from 'react';
 import { useForm } from "react-hook-form";
 import { AuthContext } from '../../Provider/AuthProvider';
+import Swal from 'sweetalert2'
+
 
 
 const AddToys = () => {
     const { user } = useContext(AuthContext)
-    const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    const { register, handleSubmit,reset } = useForm();
     const onSubmit = data => {
         fetch('http://localhost:5400/posttoys', {
             method: 'POST',
@@ -17,7 +19,9 @@ const AddToys = () => {
         })
             .then(res => res.json())
             .then(result => {
-                console.log(result)
+                Swal.fire('Product added successfully')
+                reset(result.data)
+                
             })
         console.log(data);
     };

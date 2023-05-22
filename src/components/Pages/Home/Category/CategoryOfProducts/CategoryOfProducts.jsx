@@ -12,7 +12,7 @@ const CategoryOfProducts = ({ category }) => {
                     <h2 className="card-title">{toyName}</h2>
                     <p><span className='text-lg font-bold'>Price</span>${price}</p>
                     <div className="card-actions">
-                        <button className="btn btn-primary">Buy Now</button>
+                        <button className="btn btn-primary bg-yellow-500 border-yellow-500 hover:bg-yellow-700">Details</button>
                     </div>
                 </div>
             </div>
