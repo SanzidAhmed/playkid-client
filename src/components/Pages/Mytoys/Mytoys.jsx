@@ -71,7 +71,7 @@ const Mytoys = () => {
                                 <td>{toy.quantity}</td>
 
                                 <th>
-                                    <Link to={`/toy/${toy._id}`} className='btn btn-ghost hover:bg-yellow-500 btn-xs'>Update</Link>
+                                    <Link to={`/updatetoy/${toy._id}`} className='btn btn-ghost hover:bg-yellow-500 btn-xs'>Update</Link>
                                 </th>
                                 <th>
                                     <button onClick={() => handleDelete(toy._id)} className='btn btn-ghost hover:bg-red-600 btn-xs'>Delete</button>
