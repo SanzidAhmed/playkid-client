@@ -9,7 +9,7 @@ const Category = () => {
         setActiveTab(tabClick)
     }
     useEffect(() =>{
-        fetch(`http://localhost:5400/alltoys/${activeTab}`)
+        fetch(`https://playkid-server.vercel.app/alltoys/${activeTab}`)
         .then(res => res.json())
         .then(data => setCategories(data))
     },[activeTab])

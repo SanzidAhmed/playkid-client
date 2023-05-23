@@ -10,7 +10,7 @@ const UpdateToy = () => {
     const toy = useLoaderData();
     const {_id, toyName, quantity, price, rating, toyDetails, productPhoto,postedByName} = toy;
     const onSubmit = data => {
-        fetch(`http://localhost:5400/toy/${_id}`, {
+        fetch(`https://playkid-server.vercel.app/toy/${_id}`, {
             method: 'PUT',
             headers: {
                 "content-type": "application/json"

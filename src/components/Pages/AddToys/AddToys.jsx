@@ -10,7 +10,7 @@ const AddToys = () => {
     const { user } = useContext(AuthContext)
     const { register, handleSubmit,reset } = useForm();
     const onSubmit = data => {
-        fetch('http://localhost:5400/posttoys', {
+        fetch('https://playkid-server.vercel.app/posttoys', {
             method: 'POST',
             headers: {
                 "content-type": "application/json"

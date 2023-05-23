@@ -9,7 +9,7 @@ const Mytoys = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:5400/myToys/${user?.email}`)
+        fetch(`https://playkid-server.vercel.app/myToys/${user?.email}`)
             .then(res => res.json())
             .then(data => setMyToys(data))
     }, [user])
@@ -26,7 +26,7 @@ const Mytoys = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5400/toy/${id}`, {
+                fetch(`https://playkid-server.vercel.app/toy/${id}`, {
                     method: 'DELETE',
                 })
                     .then(res => res.json())

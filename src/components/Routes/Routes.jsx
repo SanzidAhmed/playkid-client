@@ -44,12 +44,12 @@ const router = createBrowserRouter([
         {
           path: "/toy/:id",
           element: <PrivateRoutes><ProductDetails></ProductDetails></PrivateRoutes>,
-          loader: ({params}) => fetch(`http://localhost:5400/toy/${params.id}`)
+          loader: ({params}) => fetch(`https://playkid-server.vercel.app/toy/${params.id}`)
         },
         {
           path: "/updatetoy/:id",
           element: <PrivateRoutes><UpdateToy></UpdateToy></PrivateRoutes>,
-          loader: ({params} ) => fetch(`http://localhost:5400/toy/${params.id}`)
+          loader: ({params} ) => fetch(`https://playkid-server.vercel.app/toy/${params.id}`)
         }
       ]
       
