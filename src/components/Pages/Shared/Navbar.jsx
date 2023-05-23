@@ -54,7 +54,7 @@ const Navbar = () => {
                             <Link  className='active:bg-yellow-500' to="/addtoys">Add a Toys</Link>
                         </li>
                     </div>}
-                    <li><Link  className='active:bg-yellow-500'>Blogs</Link></li>
+                    <li><Link to="/blogs" className='active:bg-yellow-500'>Blogs</Link></li>
 
 
                 </ul>

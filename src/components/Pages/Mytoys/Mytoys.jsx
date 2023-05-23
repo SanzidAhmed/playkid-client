@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../Provider/AuthProvider';
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import PageTitle from '../PageTitle/PageTitle';
 
 const Mytoys = () => {
     const { user } = useContext(AuthContext);
@@ -46,6 +47,7 @@ const Mytoys = () => {
     }
     return (
         <div className='container mx-auto'>
+            <PageTitle title="My toys | PlayKid"></PageTitle>
             <div className="overflow-x-auto w-full">
                 <table className=" w-full table">
                     {/* head */}

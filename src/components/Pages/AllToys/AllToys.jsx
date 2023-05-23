@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import PageTitle from '../PageTitle/PageTitle';
 
 
 const AllToys = () => {
@@ -13,6 +14,7 @@ const AllToys = () => {
     }, [])
     return (
         <div className='container mx-auto'>
+            <PageTitle title="All toys || Playkid"></PageTitle>
             <div className="overflow-x-auto w-full">
                 <table className="table w-full">
                     {/* head */}

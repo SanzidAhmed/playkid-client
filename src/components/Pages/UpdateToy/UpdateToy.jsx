@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form';
 import { useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
 import Swal from 'sweetalert2';
+import PageTitle from '../PageTitle/PageTitle';
 
 const UpdateToy = () => {
     const {user} = useContext(AuthContext);
@@ -27,6 +28,7 @@ const UpdateToy = () => {
 
     return (
         <div className="bg-white p-32">
+            <PageTitle title="Update toy"></PageTitle>
         <h1 className="text-center font-extrabold text-3xl mb-14">Add a toy</h1>
         <form onSubmit={handleSubmit(onSubmit)}className=" ">
             <div className="md:flex gap-5">
@@ -115,7 +117,7 @@ const UpdateToy = () => {
                     </label>
                 </div>
             </div>
-            <input type="submit" value="add toy" className="btn btn-block bg-yellow-500 hover:bg-yellow-700" />
+            <input type="submit" value="Update toy" className="btn btn-block bg-yellow-500 hover:bg-yellow-700" />
         </form>
     </div>
     );

@@ -3,6 +3,7 @@ import React, { useContext } from 'react';
 import { useForm } from "react-hook-form";
 import { AuthContext } from '../../Provider/AuthProvider';
 import Swal from 'sweetalert2'
+import PageTitle from '../PageTitle/PageTitle';
 
 
 
@@ -27,6 +28,7 @@ const AddToys = () => {
     };
     return (
         <div className="bg-white p-32">
+            <PageTitle title="Add toys || PlayKid"></PageTitle>
             <h1 className="text-center font-extrabold text-3xl mb-14">Add a toy</h1>
             <form onSubmit={handleSubmit(onSubmit)} className=" ">
                 <div className="md:flex gap-5">

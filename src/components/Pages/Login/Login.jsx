@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
 import { GoogleAuthProvider } from 'firebase/auth';
+import PageTitle from '../PageTitle/PageTitle';
 
 const Login = () => {
     const { loginUser, signInGoogle } = useContext(AuthContext)
@@ -45,6 +46,7 @@ const Login = () => {
     }
     return (
         <div>
+            <PageTitle title="Login || PlayKid"></PageTitle>
             <h1 className='text-center text-5xl mt-10'>Please Sign In</h1>
             <div className="hero min-h-screen bg-white">
                 <div className="hero-content flex-col lg:flex-row">

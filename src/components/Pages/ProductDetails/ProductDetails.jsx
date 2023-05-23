@@ -1,12 +1,14 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { FaStar, } from "react-icons/fa";
+import PageTitle from '../PageTitle/PageTitle';
 
 const ProductDetails = () => {
     const singleProduct = useLoaderData();
     const { toyName, quantity, price, rating, category, toyDetails, productPhoto ,postedBy,postedByName} = singleProduct;
     return (
         <div className='container mx-auto'>
+            <PageTitle title="Product details || PlayKid"></PageTitle>
             <div className="card card-side bg-base-100 shadow-xl">
                 <figure><img src={productPhoto} alt="Movie" /></figure>
                 <div className="card-body w-1/2  text-center">

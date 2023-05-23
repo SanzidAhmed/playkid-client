@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
 import { updateProfile } from 'firebase/auth';
+import PageTitle from '../PageTitle/PageTitle';
 
 const Register = () => {
     const {createUser} = useContext(AuthContext)
@@ -35,6 +36,7 @@ const Register = () => {
     }
     return (
         <div>
+            <PageTitle title="Register || PlayKid"></PageTitle>
             <h1 className='text-center text-5xl mt-10'>Please Register</h1>
             <div className="hero min-h-screen bg-white">
                 <div className="hero-content flex-col lg:flex-row">

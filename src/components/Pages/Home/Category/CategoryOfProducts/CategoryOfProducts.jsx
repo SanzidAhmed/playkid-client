@@ -5,7 +5,7 @@ const CategoryOfProducts = ({ category }) => {
     const {_id, productPhoto, toyName, price } = category || {};
     return (
         <div>
-            <div className="card w-full  bg-base-100 shadow-xl">
+            <div className="card w-full  bg-base-100 min-h-fit shadow-xl">
                 <figure className="px-10 pt-10">
                     <img src={productPhoto} alt="Shoes" className="rounded-xl h-60" />
                 </figure>

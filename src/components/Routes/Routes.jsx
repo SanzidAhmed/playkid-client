@@ -10,6 +10,7 @@ import Mytoys from "../Pages/Mytoys/Mytoys";
 import AddToys from "../Pages/AddToys/AddToys";
 import ProductDetails from "../Pages/ProductDetails/ProductDetails";
 import UpdateToy from "../Pages/UpdateToy/UpdateToy";
+import Blogs from "../Pages/Blogs/Blogs";
 
 const router = createBrowserRouter([
     {
@@ -50,6 +51,10 @@ const router = createBrowserRouter([
           path: "/updatetoy/:id",
           element: <PrivateRoutes><UpdateToy></UpdateToy></PrivateRoutes>,
           loader: ({params} ) => fetch(`https://playkid-server.vercel.app/toy/${params.id}`)
+        },
+        {
+          path: "/blogs",
+          element: <Blogs></Blogs>
         }
       ]
       
