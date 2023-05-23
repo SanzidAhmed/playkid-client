@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 const AllToys = () => {
     const [toys, setToys] = useState([]);
     const [seeMore, setSeeMore] = useState(false);
+    console.log(seeMore);
 
     const handleSeeMore = () => {
         setSeeMore(true);
@@ -32,7 +33,7 @@ const AllToys = () => {
                         </tr>
                     </thead>
                     {
-                        toys.slice(0, seeMore ? 200 : 20).map(toy => <tbody
+                        toys.slice(0, seeMore ? toys.length : 20).map(toy => <tbody
                             key={toy._id}>
                             <tr>
                                 <td>{toy?.postedByName}</td>
@@ -49,7 +50,7 @@ const AllToys = () => {
                     }
                    
                 </table>
-                <div className='text-center'>{!seeMore && <button onClick={handleSeeMore} className='mt-8 bg-yellow-500 py-3 px-7 rounded-lg font-semibold text-white  hover:bg-yellow-700 active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-30'>See All</button>}</div>
+                <div className='text-center'>{(toys.length>20) && !seeMore && <button onClick={handleSeeMore} className='mt-8 bg-yellow-500 py-3 px-7 rounded-lg font-semibold text-white  hover:bg-yellow-700 active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-30'>See All</button>}</div>
             </div>
 
         </div>
