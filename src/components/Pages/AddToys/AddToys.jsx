@@ -58,10 +58,10 @@ const AddToys = () => {
                     </div>
                     <div className="form-control md:w-1/2">
                         <label className="label">
-                            <span className="label-text text-lg font-medium">Feature</span>
+                            <span className="label-text text-lg font-medium">Rating</span>
                         </label>
                         <label className="">
-                            <input type="text" {...register("productFeature")} placeholder="Enter product feature" name="productFeature" className="input input-bordered rounded-lg w-full" />
+                            <input type="text" {...register("rating")} placeholder="Rating" name="rating" className="input input-bordered rounded-lg w-full" />
                         </label>
                     </div>
                 </div>

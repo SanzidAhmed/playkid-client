@@ -20,7 +20,7 @@ const Category = () => {
                 <a onClick={() => handleTabActive("Small world toys")} className={`tab ${activeTab == "Small world toys"? "text-white bg-yellow-400" : "Small world toys"}`}>Small world toys</a>
                 <a onClick={() => handleTabActive("Creative toys")} className={`tab ${activeTab == "Creative toys"? "text-white bg-yellow-400" : "Creative toys"}`}>Creative toys</a>
             </div>
-            <div className='grid md:grid-cols-3  gap-10 w-full'>
+            <div className='grid md:grid-cols-3 my-10 min-h-min gap-10 w-full'>
                 {
                     categories.map(category => <CategoryOfProducts
                     key={category._id}

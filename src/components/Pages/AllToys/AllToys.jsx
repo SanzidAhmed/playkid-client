@@ -1,15 +1,9 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 
 const AllToys = () => {
     const [toys, setToys] = useState([]);
-    const [seeMore, setSeeMore] = useState(false);
-    console.log(seeMore);
-
-    const handleSeeMore = () => {
-        setSeeMore(true);
-    }
-
 
 
     useEffect(() => {
@@ -18,7 +12,7 @@ const AllToys = () => {
             .then(data => setToys(data))
     }, [])
     return (
-        <div>
+        <div className='container mx-auto'>
             <div className="overflow-x-auto w-full">
                 <table className="table w-full">
                     {/* head */}
@@ -33,7 +27,7 @@ const AllToys = () => {
                         </tr>
                     </thead>
                     {
-                        toys.slice(0, seeMore ? toys.length : 20).map(toy => <tbody
+                        toys.map(toy => <tbody
                             key={toy._id}>
                             <tr>
                                 <td>{toy?.postedByName}</td>
@@ -43,14 +37,14 @@ const AllToys = () => {
                                 <td>{toy.quantity}</td>
 
                                 <th>
-                                    <button className="btn btn-ghost btn-xs">details</button>
+                                    <Link to={`/toy/${toy._id}`} className='btn btn-ghost btn-xs'>details</Link>
                                 </th>
                             </tr>
                         </tbody>)
                     }
                    
                 </table>
-                <div className='text-center'>{(toys.length>20) && !seeMore && <button onClick={handleSeeMore} className='mt-8 bg-yellow-500 py-3 px-7 rounded-lg font-semibold text-white  hover:bg-yellow-700 active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-30'>See All</button>}</div>
+                
             </div>
 
         </div>
