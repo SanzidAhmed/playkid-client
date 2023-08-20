@@ -8,25 +8,28 @@ const Category = () => {
     const handleTabActive = (tabClick) => {
         setActiveTab(tabClick)
     }
-    useEffect(() =>{
+    useEffect(() => {
         fetch(`https://playkid-server.vercel.app/alltoys/${activeTab}`)
-        .then(res => res.json())
-        .then(data => setCategories(data))
-    },[activeTab])
+            .then(res => res.json())
+            .then(data => setCategories(data))
+    }, [activeTab])
     return (
-        <div className='container mx-auto '>
-            <div className="tabs tabs-boxed md:flex items-center justify-center bg-slate-200 ">
-                <a onClick={() => handleTabActive("movement toys")} className={`tab ${activeTab == "movement toys"? "text-white bg-yellow-400" : "movement toys"}`}>movement toys</a>
-                <a onClick={() => handleTabActive("Small world toys")} className={`tab ${activeTab == "Small world toys"? "text-white bg-yellow-400" : "Small world toys"}`}>Small world toys</a>
-                <a onClick={() => handleTabActive("Creative toys")} className={`tab ${activeTab == "Creative toys"? "text-white bg-yellow-400" : "Creative toys"}`}>Creative toys</a>
-            </div>
-            <div className='grid md:grid-cols-3 my-10 min-h-min gap-10 w-full'>
-                {
-                    categories.map(category => <CategoryOfProducts
-                    key={category._id}
-                    category= {category}
-                    ></CategoryOfProducts>)
-                }
+        <div className='bg-slate-100 text-[#1C3F3A] '>
+            <div className='container mx-auto pb-10'>
+                <h1 className='text-center py-10 text-3xl text-[#1C3F3A] uppercase'>Toys Category</h1>
+                <div className="tabs mt-2 md:flex items-center justify-center text-white ">
+                    <a onClick={() => handleTabActive("movement toys")} className={`text-[#1C3F3A] tab ${activeTab == "movement toys" ? "text-white bg-[#F6D83E]" : "movement toys"}`}>movement toys</a>
+                    <a onClick={() => handleTabActive("Small world toys")} className={`text-[#1C3F3A] tab ${activeTab == "Small world toys" ? "text-white bg-[#F6D83E]" : "Small world toys"}`}>Small world toys</a>
+                    <a onClick={() => handleTabActive("Creative toys")} className={`text-[#1C3F3A]   tab ${activeTab == "Creative toys" ? "text-white bg-[#F6D83E]" : "Creative toys"}`}>Creative toys</a>
+                </div>
+                <div className='grid md:grid-cols-4 my-4 min-h-min gap-10 w-full'>
+                    {
+                        categories.map(category => <CategoryOfProducts
+                            key={category._id}
+                            category={category}
+                        ></CategoryOfProducts>)
+                    }
+                </div>
             </div>
         </div>
     );

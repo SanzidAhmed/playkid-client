@@ -9,7 +9,7 @@ const UpdateToy = () => {
     const {user} = useContext(AuthContext);
     const { register, handleSubmit,reset } = useForm();
     const toy = useLoaderData();
-    const {_id, toyName, quantity, price, rating, toyDetails, productPhoto,postedByName} = toy;
+    const {_id, toyName, quantity, price, rating, toyDetails, productPhoto} = toy;
     const onSubmit = data => {
         fetch(`https://playkid-server.vercel.app/toy/${_id}`, {
             method: 'PUT',
