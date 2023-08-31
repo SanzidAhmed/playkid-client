@@ -5,7 +5,7 @@ import { FaTruckMoving } from "react-icons/fa";
 const Features = () => {
     return (
         <div className='md:text-center md:container md:mx-auto mt-10'>
-            <div className='md:text-center container bg-white border-[#F6D83E] border md:mx-auto grid grid-cols-2 md:grid-cols-4 py-16 text-[#1C3F3A] gap-4'>
+            <div className='md:text-center container bg-white border-white border md:mx-auto grid grid-cols-2 md:grid-cols-4 py-16 text-[#1C3F3A] gap-4'>
                 <div className='flex gap-6 md:justify-center md:items-center  '>
                     <p className='text-4xl text-[#1C3F3A]'><RiSecurePaymentLine></RiSecurePaymentLine></p>
                     <h1 className='text-lg md:text-2xl'>Secure Payments</h1>

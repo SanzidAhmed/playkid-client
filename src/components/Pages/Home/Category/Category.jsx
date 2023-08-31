@@ -14,7 +14,7 @@ const Category = () => {
             .then(data => setCategories(data))
     }, [activeTab])
     return (
-        <div className='bg-slate-100 text-[#1C3F3A] '>
+        <div className=' text-[#1C3F3A] '>
             <div className='container mx-auto pb-10'>
                 <h1 className='text-center py-10 text-3xl text-[#1C3F3A] uppercase'>Toys Category</h1>
                 <div className="tabs mt-2 md:flex items-center justify-center text-white ">

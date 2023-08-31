@@ -39,7 +39,15 @@ const Navbar = () => {
                             {/* {!user && <li className='' ><Link to="/login">Login</Link></li>} */}
                         </ul>
                     </div>
-                    <img src="https://i.ibb.co/vZzdX54/p-3-removebg-preview.png" className="btn bg-[#F6D83E] border-[#F6D83E] hover:bg-[#F6D83E] ml-8 w-32 h-16 " alt="" />
+                    <img src="https://i.ibb.co/KNjhsH8/p-4-removebg-preview.png" className="btn bg-[#F6D83E] border-[#F6D83E] hover:border-[#F6D83E] hover:bg-[#F6D83E] ml-8 w-32 h-16 " alt="" />
+                    <div className="form-control">
+                        <div className="input-group  md:hidden">
+                            <input type="text" placeholder="Search…" className="input w-28 md:w-full" />
+                            <button className="btn btn-square bg-[#F6D83E] border-white">
+                                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+                            </button>
+                        </div>
+                    </div>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1 flex ">
@@ -56,11 +64,17 @@ const Navbar = () => {
                             </li>
                         </div>}
                         <li><Link to="/blogs" className='active:bg-yellow-500'>Blogs</Link></li>
-
-
                     </ul>
                 </div>
                 <div className="navbar-end">
+                    <div className="form-control hidden md:flex mr-6">
+                        <div className="input-group">
+                            <input type="text" placeholder="Search…" className="input" />
+                            <button className="btn btn-square bg-[#F6D83E] border-white">
+                                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+                            </button>
+                        </div>
+                    </div>
                     {user && <div className="dropdown dropdown-end">
                         <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                             <div className="w-10 rounded-full">

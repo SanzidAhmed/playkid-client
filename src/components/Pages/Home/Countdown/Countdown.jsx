@@ -29,32 +29,34 @@ const Countdown = ({ duration }) => {
 
     const [days, hours, minutes, seconds] = getFormatedTime(time)
     return (
-        <div className='md:flex justify-center items-center text-center container mx-auto mt-10 gap-20 bg-[#F6D83E] py-10'>
-            <h1 className='inline-flex justify-center items-center text-3xl md:text-5xl font-semibold gap-4 text-orange-600'><BsLightningChargeFill className='text-orange-600'></BsLightningChargeFill> Lightning Deals</h1>
-            <div className="grid grid-flow-col gap-5 text-center justify-center items-center auto-cols-max">
-                <div className="flex flex-col p-2 bg-[#F6D83E]  text-orange-600">
-                    <span className="countdown font-mono text-5xl">
-                        <span style={{ "--value": days }}></span>
-                    </span>
-                    days
-                </div>
-                <div className="flex flex-col p-2 bg-[#F6D83E]  text-orange-600">
-                    <span className="countdown font-mono text-5xl">
-                        <span style={{ "--value": hours }}></span>
-                    </span>
-                    hours
-                </div>
-                <div className="flex flex-col p-2 bg-[#F6D83E]  text-orange-600">
-                    <span className="countdown font-mono text-5xl">
-                        <span style={{ "--value": minutes }}></span>
-                    </span>
-                    min
-                </div>
-                <div className="flex flex-col p-2 bg-[#F6D83E]  text-orange-600">
-                    <span className="countdown font-mono text-5xl">
-                        <span style={{ "--value": seconds }}></span>
-                    </span>
-                    sec
+        <div className='bg-[#F6D83E] border border-white'>
+            <div className='md:flex justify-center items-center text-center container mx-auto gap-20  py-10'>
+                <h1 className='inline-flex justify-center items-center text-3xl md:text-5xl font-semibold gap-4 text-[#1C3F3A] '>Lightning Deals <BsLightningChargeFill className='text-orange-600'></BsLightningChargeFill> </h1>
+                <div className="grid grid-flow-col gap-5 text-center justify-center items-center auto-cols-max">
+                    <div className="flex flex-col p-2 bg-white  text-[#1C3F3A] ">
+                        <span className="countdown font-mono text-5xl">
+                            <span style={{ "--value": days }}></span>
+                        </span>
+                        days
+                    </div>
+                    <div className="flex flex-col p-2 bg-white   text-[#1C3F3A] ">
+                        <span className="countdown font-mono text-5xl">
+                            <span style={{ "--value": hours }}></span>
+                        </span>
+                        hours
+                    </div>
+                    <div className="flex flex-col p-2 bg-white   text-[#1C3F3A] ">
+                        <span className="countdown font-mono text-5xl">
+                            <span style={{ "--value": minutes }}></span>
+                        </span>
+                        min
+                    </div>
+                    <div className="flex flex-col p-2 bg-white   text-[#1C3F3A] ">
+                        <span className="countdown font-mono text-5xl">
+                            <span style={{ "--value": seconds }}></span>
+                        </span>
+                        sec
+                    </div>
                 </div>
             </div>
         </div>
